@@ -13,6 +13,17 @@
         "boxes": [
             {
                 "box": {
+                    "id": "obj-7",
+                    "maxclass": "kslider",
+                    "numinlets": 2,
+                    "numoutlets": 2,
+                    "outlettype": [ "int", "int" ],
+                    "parameter_enable": 0,
+                    "patching_rect": [ 394.0, 139.0, 336.0, 53.0 ]
+                }
+            },
+            {
+                "box": {
                     "id": "obj-6",
                     "maxclass": "newobj",
                     "numinlets": 5,
@@ -102,18 +113,6 @@
         "lines": [
             {
                 "patchline": {
-                    "destination": [ "obj-2", 0 ],
-                    "source": [ "obj-1", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-6", 0 ],
-                    "source": [ "obj-1", 1 ]
-                }
-            },
-            {
-                "patchline": {
                     "destination": [ "obj-17", 1 ],
                     "order": 0,
                     "source": [ "obj-18", 0 ]
@@ -154,6 +153,18 @@
                 "patchline": {
                     "destination": [ "obj-4", 1 ],
                     "source": [ "obj-6", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-2", 0 ],
+                    "source": [ "obj-7", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-6", 0 ],
+                    "source": [ "obj-7", 1 ]
                 }
             }
         ],
