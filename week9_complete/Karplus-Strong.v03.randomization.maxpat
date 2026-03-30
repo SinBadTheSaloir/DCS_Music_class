@@ -202,7 +202,7 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 480.0, 810.0, 80.0, 22.0 ],
-                    "text": "send~ ks.raw"
+                    "text": "send~ 2.source"
                 }
             },
             {
@@ -212,7 +212,39 @@
                     "numinlets": 1,
                     "numoutlets": 0,
                     "patching_rect": [ 570.0, 812.0, 250.0, 20.0 ],
-                    "text": "-> prep patch"
+                    "text": "-> spat boiler (source 2)"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-spat-lb",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 1,
+                    "outlettype": [ "bang" ],
+                    "patching_rect": [ 100.0, 750.0, 58.0, 22.0 ],
+                    "text": "loadbang"
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-spat-msg",
+                    "maxclass": "message",
+                    "numinlets": 2,
+                    "numoutlets": 1,
+                    "outlettype": [ "" ],
+                    "patching_rect": [ 100.0, 790.0, 170.0, 22.0 ],
+                    "text": "/source/2/xyz 0. 1. 0."
+                }
+            },
+            {
+                "box": {
+                    "id": "obj-spat-send",
+                    "maxclass": "newobj",
+                    "numinlets": 1,
+                    "numoutlets": 0,
+                    "patching_rect": [ 100.0, 830.0, 100.0, 22.0 ],
+                    "text": "s spat.oper.msg"
                 }
             },
             {
@@ -327,6 +359,18 @@
             }
         ],
         "lines": [
+            {
+                "patchline": {
+                    "destination": [ "obj-spat-msg", 0 ],
+                    "source": [ "obj-spat-lb", 0 ]
+                }
+            },
+            {
+                "patchline": {
+                    "destination": [ "obj-spat-send", 0 ],
+                    "source": [ "obj-spat-msg", 0 ]
+                }
+            },
             {
                 "patchline": {
                     "destination": [ "obj-15", 0 ],
